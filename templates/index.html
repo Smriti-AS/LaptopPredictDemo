@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 450px;
+        }
+        .form-container h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .btn-reset {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-reset:hover {
+            background-color: #c82333;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        .result-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form action="/predict" method="post">
+            <h1>Prediction Form</h1>
+
+            <!-- RAM Dropdown -->
+            <div class="mb-3">
+                <label for="Ram" class="form-label">Ram (GB):</label>
+                <select name="Ram" id="Ram" class="form-select">
+                    <option value="8">8</option>
+                    <option value="16">16</option>
+                    <option value="4">4</option>
+                    <option value="2">2</option>
+                    <option value="12">12</option>
+                    <option value="6">6</option>
+                    <option value="32">32</option>
+                    <option value="24">24</option>
+                    <option value="64">64</option>
+                </select>
+            </div>
+
+            <!-- Weight Input -->
+            <div class="mb-3">
+                <label for="Weight" class="form-label">Weight (kg):</label>
+                <input type="number" name="Weight" id="Weight" class="form-control" step="0.1" required>
+            </div>
+
+            <!-- Touchscreen Dropdown -->
+            <div class="mb-3">
+                <label for="Touchscreen" class="form-label">Touchscreen:</label>
+                <select name="Touchscreen" id="Touchscreen" class="form-select">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <!-- IPS Dropdown -->
+            <div class="mb-3">
+                <label for="IPS" class="form-label">IPS:</label>
+                <select name="IPS" id="IPS" class="form-select">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <!-- PPI Input -->
+            <div class="mb-3">
+                <label for="PPI" class="form-label">PPI:</label>
+                <input type="number" name="PPI" id="PPI" class="form-control" step="1" required>
+            </div>
+
+            <!-- CPU Brand Dropdown -->
+            <div class="mb-3">
+                <label for="CpuBrand" class="form-label">CPU Brand:</label>
+                <select name="Cpu brand" id="CpuBrand" class="form-select">
+                    <option value="Intel Core i5">Intel Core i5</option>
+                    <option value="Intel Core i7">Intel Core i7</option>
+                    <option value="AMD Processor">AMD Processor</option>
+                    <option value="Intel Core i3">Intel Core i3</option>
+                    <option value="Other Intel Processor">Other Intel Processor</option>
+                </select>
+            </div>
+
+            <!-- HDD Dropdown -->
+            <div class="mb-3">
+                <label for="HDD" class="form-label">HDD (GB):</label>
+                <select name="HDD" id="HDD" class="form-select">
+                    <option value="0">0</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="1128">1128</option>
+                    <option value="1256">1256</option>
+                    <option value="2256">2256</option>
+                    <option value="2000">2000</option>
+                </select>
+            </div>
+
+            <!-- SSD Dropdown -->
+            <div class="mb-3">
+                <label for="SSD" class="form-label">SSD (GB):</label>
+                <select name="SSD" id="SSD" class="form-select">
+                    <option value="128">128</option>
+                    <option value="0">0</option>
+                    <option value="256">256</option>
+                    <option value="512">512</option>
+                    <option value="1128">1128</option>
+                    <option value="1024">1024</option>
+                </select>
+            </div>
+            
+            <!-- Hybrid Storage Dropdown -->
+<div class="mb-3">
+    <label for="Hybrid" class="form-label">Hybrid Storage (GB):</label>
+    <select name="Hybrid" id="Hybrid" class="form-select">
+        <option value="0">0</option>
+        <option value="16">16</option>
+        <option value="768">768</option>
+        <option value="2512">2512</option>
+        <option value="180">180</option>
+    </select>
+</div>
+
+
+            <!-- Flash Storage Dropdown -->
+            <div class="mb-3">
+                <label for="FlashStorage" class="form-label">Flash Storage (GB):</label>
+                <select name="Flash_Storage" id="FlashStorage" class="form-select">
+                    <option value="0">0</option>
+                    <option value="128">128</option>
+                    <option value="256">256</option>
+                </select>
+            </div>
+
+            <!-- GPU Brand Dropdown -->
+            <div class="mb-3">
+                <label for="GpuBrand" class="form-label">GPU Brand:</label>
+                <select name="Gpu brand" id="GpuBrand" class="form-select">
+                    <option value="Intel">Intel</option>
+                    <option value="AMD">AMD</option>
+                    <option value="Nvidia">Nvidia</option>
+                </select>
+            </div>
+
+            <!-- OS Dropdown -->
+            <div class="mb-3">
+                <label for="OS" class="form-label">Operating System:</label>
+                <select name="os" id="OS" class="form-select">
+                    <option value="Mac">Mac</option>
+                    <option value="Others/No OS/Linux">Others/No OS/Linux</option>
+                    <option value="Windows">Windows</option>
+                </select>
+            </div>
+
+            <!-- Submit and Reset Buttons -->
+            <div class="d-flex justify-content-between">
+                <button type="reset" class="btn btn-reset">Reset</button>
+                <button type="submit" class="btn btn-submit">Predict</button>
+            </div>
+        </form>
+
+        <!-- Output Section -->
+        <div class="result-container">
+            {% if prediction is not none %}
+                <div class="alert alert-success text-center" role="alert">
+                    <h4 class="alert-heading">Prediction Result</h4>
+                    <p>{{ prediction }}</p>
+                </div>
+            {% elif error is not none %}
+                <div class="alert alert-danger text-center" role="alert">
+                    <h4 class="alert-heading">Error</h4>
+                    <p>{{ error }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
